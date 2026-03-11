@@ -1,0 +1,22 @@
+/* 自定义字体配置 */
+
+/* 英文字体使用 Times New Roman */
+body {
+  font-family: "Times New Roman", Times, serif;
+}
+
+/* 中文字体使用宋体 */
+body[lang="zh-CN"], body[lang="zh-TW"] {
+  font-family: "Times New Roman", "Songti SC", "SimSun", serif;
+}
+
+/* 标题字体 */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bold;
+}
+
+/* 代码字体保持等宽字体 */
+code, pre, .highlight {
+  font-family: "Consolas", "Monaco", "Courier New", monospace;
+}
