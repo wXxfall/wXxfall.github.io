@@ -7,13 +7,18 @@ body {
 
 /* 中文字体使用宋体 */
 body[lang="zh-CN"], body[lang="zh-TW"] {
-  font-family: "Times New Roman", "Songti SC", "SimSun", serif;
+  font-family: "SimSun", "宋体", "Songti SC", serif;
 }
 
 /* 标题字体 */
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Times New Roman", Times, serif;
+  font-family: "SimSun", "宋体", "Songti SC", serif;
   font-weight: bold;
+}
+
+/* 正文段落字体 */
+p, li, td, th, span, div {
+  font-family: "SimSun", "宋体", "Songti SC", serif;
 }
 
 /* 代码字体保持等宽字体 */

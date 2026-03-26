@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>范德瓦尔斯键</title>
+    <link href="/2026/03/26/%E8%8C%83%E5%BE%B7%E7%93%A6%E5%B0%94%E6%96%AF%E9%94%AE/"/>
+    <url>/2026/03/26/%E8%8C%83%E5%BE%B7%E7%93%A6%E5%B0%94%E6%96%AF%E9%94%AE/</url>
+    
+    <content type="html"><![CDATA[<h1 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h1><p>范德瓦尔斯键的发现始于1873年，范德瓦尔斯为修正实际气体与理想气体的偏差，提出分子具有体积且相互吸引，奠定了概念基础。20世纪初，凯瑟姆、德拜等人将其归因于偶极相互作用；1930年，伦敦用量子力学揭示出非极性分子间普遍存在的瞬时色散力。后人为纪念其开创性贡献，将所有此类分子间作用力统称为范德瓦尔斯力。</p><h1 id="理论推导"><a href="#理论推导" class="headerlink" title="理论推导"></a>理论推导</h1><p>在不考虑两体关联的情况下，具有球对称的饱和电子结构的原子之间不存在相互作用。但是由于电子的零点运动会造成瞬时的电偶极矩，进而在近邻原子中感生出电偶极矩产生相互作用。下图展示两个典型的状态。</p><figure>  <img src="/img/paper2_2.png" alt="两个惰性气体原子间的瞬时电偶极矩" style="max-width: 100%;">  <figcaption>图 1：两个惰性气体原子间的瞬时电偶极矩</figcaption></figure><p>伦敦求解了这个量子力学问题，得到 $(a)$ 的概率略大于 $(b)$ 的概率，所以吸引占优势。而这种吸引力就是范德瓦尔斯力。</p><h2 id="谐振子模型"><a href="#谐振子模型" class="headerlink" title="谐振子模型"></a>谐振子模型</h2>]]></content>
+    
+    
+    <categories>
+      
+      <category>physics</category>
+      
+      <category>knowledge</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>物理化学</tag>
+      
+      <tag>理论推导</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>大三物理学习札记</title>
     <link href="/2026/03/12/%E5%A4%A7%E4%B8%89%E7%89%A9%E7%90%86%E5%AD%A6%E4%B9%A0%E6%9C%AD%E8%AE%B0/"/>
     <url>/2026/03/12/%E5%A4%A7%E4%B8%89%E7%89%A9%E7%90%86%E5%AD%A6%E4%B9%A0%E6%9C%AD%E8%AE%B0/</url>
@@ -13,7 +42,7 @@
     
     <categories>
       
-      <category>物理学</category>
+      <category>physics</category>
       
       <category>学习札记</category>
       
@@ -27,19 +56,6 @@
       <tag>学习札记</tag>
       
     </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>hello,my blog</title>
-    <link href="/2026/03/11/hello-my-blog/"/>
-    <url>/2026/03/11/hello-my-blog/</url>
-    
-    <content type="html"><![CDATA[]]></content>
-    
-    
     
   </entry>
   
