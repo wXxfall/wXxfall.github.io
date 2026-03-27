@@ -25,3 +25,31 @@ p, li, td, th, span, div {
 code, pre, .highlight {
   font-family: "Consolas", "Monaco", "Courier New", monospace;
 }
+
+/* 隐藏 MathJax 辅助 MathML */
+mjx-assistive-mml {
+  display: none !important;
+}
+
+.MathJax_Assistive_MathML {
+  display: none !important;
+}
+
+/* MathJax 溢出控制 */
+.MathJax {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+/* 矩阵显示优化 */
+mjx-mtable {
+  display: inline-table !important;
+}
+
+mjx-mtr {
+  display: table-row !important;
+}
+
+mjx-mtd {
+  display: table-cell !important;
+}
