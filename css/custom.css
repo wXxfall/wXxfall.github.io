@@ -53,3 +53,35 @@ mjx-mtr {
 mjx-mtd {
   display: table-cell !important;
 }
+/* 移动端公式横向滚动 - 增强版 */
+@media (max-width: 768px) {
+  /* 为公式容器添加滚动 - 支持多种选择器 */
+  mjx-container[display="true"],
+  mjx-container.MathJax[display="true"],
+  .MathJax[display="true"] {
+    display: block !important;
+    max-width: 100% !important;
+    min-width: auto !important;
+    width: 100% !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 8px;
+  }
+  
+  /* 确保内部公式不换行 */
+  mjx-container[display="true"] > mjx-math,
+  mjx-container.MathJax[display="true"] > mjx-math,
+  .MathJax[display="true"] > mjx-math {
+    display: inline-block !important;
+    white-space: nowrap !important;
+    max-width: none !important;
+  }
+  
+  /* 针对矩阵的特殊处理 */
+  mjx-container[display="true"] mjx-mtable,
+  mjx-container.MathJax[display="true"] mjx-mtable,
+  .MathJax[display="true"] mjx-mtable {
+    display: inline-table !important;
+  }
+}
