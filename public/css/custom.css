@@ -1,0 +1,87 @@
+/* 自定义字体配置 */
+
+/* 英文字体使用 Times New Roman */
+body {
+  font-family: "Times New Roman", Times, serif;
+}
+
+/* 中文字体使用宋体 */
+body[lang="zh-CN"], body[lang="zh-TW"] {
+  font-family: "SimSun", "宋体", "Songti SC", serif;
+}
+
+/* 标题字体 */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "SimSun", "宋体", "Songti SC", serif;
+  font-weight: bold;
+}
+
+/* 正文段落字体 */
+p, li, td, th, span, div {
+  font-family: "SimSun", "宋体", "Songti SC", serif;
+}
+
+/* 代码字体保持等宽字体 */
+code, pre, .highlight {
+  font-family: "Consolas", "Monaco", "Courier New", monospace;
+}
+
+/* 隐藏 MathJax 辅助 MathML */
+mjx-assistive-mml {
+  display: none !important;
+}
+
+.MathJax_Assistive_MathML {
+  display: none !important;
+}
+
+/* MathJax 溢出控制 */
+.MathJax {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+/* 矩阵显示优化 */
+mjx-mtable {
+  display: inline-table !important;
+}
+
+mjx-mtr {
+  display: table-row !important;
+}
+
+mjx-mtd {
+  display: table-cell !important;
+}
+/* 移动端公式横向滚动 - 增强版 */
+@media (max-width: 768px) {
+  /* 为公式容器添加滚动 - 支持多种选择器 */
+  mjx-container[display="true"],
+  mjx-container.MathJax[display="true"],
+  .MathJax[display="true"] {
+    display: block !important;
+    max-width: 100% !important;
+    min-width: auto !important;
+    width: 100% !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 8px;
+  }
+  
+  /* 确保内部公式不换行 */
+  mjx-container[display="true"] > mjx-math,
+  mjx-container.MathJax[display="true"] > mjx-math,
+  .MathJax[display="true"] > mjx-math {
+    display: inline-block !important;
+    white-space: nowrap !important;
+    max-width: none !important;
+  }
+  
+  /* 针对矩阵的特殊处理 */
+  mjx-container[display="true"] mjx-mtable,
+  mjx-container.MathJax[display="true"] mjx-mtable,
+  .MathJax[display="true"] mjx-mtable {
+    display: inline-table !important;
+  }
+}
