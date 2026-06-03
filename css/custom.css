@@ -1,0 +1,809 @@
+/* ============================================================
+   TASTE-SKILL · MINIMALIST CUSTOM CSS
+   Protocol: Premium Utilitarian Minimalism & Editorial UI
+   Stack: Hexo 7.3 + Fluid 1.9.9 — override via CSS variables
+   ============================================================ */
+
+/* ============================================================
+   1. TYPOGRAPHY
+   Sans-serif body (PingFang SC premium) + Serif headings (editorial)
+   ============================================================ */
+:root {
+  --font-family-sans-serif: 'PingFang SC', 'SF Pro Display', 'Noto Sans SC',
+    'Helvetica Neue', 'Microsoft YaHei', sans-serif;
+}
+
+body {
+  font-family: var(--font-family-sans-serif);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: 0.01em;
+}
+
+/* Editorial serif for headings */
+h1, h2, h3, h4, h5, h6,
+.index-header,
+.banner-text,
+.post-title,
+.about-name {
+  font-family: 'Noto Serif SC', 'STSong', 'SimSun', 'Georgia',
+    'Times New Roman', serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--post-heading-color);
+}
+
+/* Body text in premium sans-serif */
+p, li, td, th, span, div,
+.nav-link, .post-meta, .category-chains,
+.footer-inner, .pagination {
+  font-family: var(--font-family-sans-serif);
+}
+
+/* Code blocks keep monospace */
+code, pre, .highlight,
+.markdown-body code, .markdown-body pre {
+  font-family: 'SF Mono', 'JetBrains Mono', 'Cascadia Code', 'Consolas',
+    'Monaco', 'Courier New', monospace;
+  font-size: 0.88rem;
+}
+
+/* ============================================================
+   2. CSS VARIABLES — Light Mode (Warm Monochrome)
+   ============================================================ */
+:root {
+  --color-mode: 'light';
+  --body-bg-color: #F7F6F3;
+  --board-bg-color: #FFFFFF;
+  --text-color: #1A1A1A;
+  --sec-text-color: #787774;
+  --post-text-color: #2C2C2A;
+  --post-heading-color: #111111;
+  --post-link-color: #1F6C9F;
+  --link-hover-color: #1F6C9F;
+  --link-hover-bg-color: #F2F0ED;
+  --line-color: #EAEAEA;
+  --navbar-bg-color: rgba(255, 255, 255, 0.0);
+  --navbar-text-color: #fff;
+  --subtitle-color: #fff;
+  --scrollbar-color: #D1CFCB;
+  --scrollbar-hover-color: #B5B3AD;
+  --button-bg-color: #F9F9F8;
+  --button-hover-bg-color: #F0EFEC;
+  --highlight-bg-color: #F4F3F0;
+  --inlinecode-bg-color: rgba(0, 0, 0, 0.05);
+  --fold-title-color: #1A1A1A;
+  --fold-border-color: #EAEAEA;
+}
+
+/* ============================================================
+   3. CSS VARIABLES — Dark Mode (Warm Dark)
+   ============================================================ */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-user-color-scheme]) {
+    --body-bg-color: #1B1B1A;
+    --board-bg-color: #252523;
+    --text-color: #D4D3D0;
+    --sec-text-color: #9B9995;
+    --post-text-color: #D4D3D0;
+    --post-heading-color: #E8E7E4;
+    --post-link-color: #6BAAD0;
+    --link-hover-color: #6BAAD0;
+    --link-hover-bg-color: #2E2E2B;
+    --line-color: #3A3A36;
+    --navbar-bg-color: rgba(0, 0, 0, 0.0);
+    --navbar-text-color: #D0D0D0;
+    --subtitle-color: #fff;
+    --scrollbar-color: #4A4945;
+    --scrollbar-hover-color: #6B6964;
+    --button-bg-color: #2E2E2B;
+    --button-hover-bg-color: #3A3A36;
+    --highlight-bg-color: #2A2A27;
+    --inlinecode-bg-color: rgba(255, 255, 255, 0.06);
+    --fold-title-color: #D4D3D0;
+    --fold-border-color: #3A3A36;
+  }
+  :root:not([data-user-color-scheme]) img {
+    -webkit-filter: brightness(0.92);
+    filter: brightness(0.92);
+  }
+}
+
+[data-user-color-scheme="dark"] {
+  --body-bg-color: #1B1B1A;
+  --board-bg-color: #252523;
+  --text-color: #D4D3D0;
+  --sec-text-color: #9B9995;
+  --post-text-color: #D4D3D0;
+  --post-heading-color: #E8E7E4;
+  --post-link-color: #6BAAD0;
+  --link-hover-color: #6BAAD0;
+  --link-hover-bg-color: #2E2E2B;
+  --line-color: #3A3A36;
+  --navbar-bg-color: rgba(0, 0, 0, 0.0);
+  --navbar-text-color: #D0D0D0;
+  --subtitle-color: #fff;
+  --scrollbar-color: #4A4945;
+  --scrollbar-hover-color: #6B6964;
+  --button-bg-color: #2E2E2B;
+  --button-hover-bg-color: #3A3A36;
+  --highlight-bg-color: #2A2A27;
+  --inlinecode-bg-color: rgba(255, 255, 255, 0.06);
+  --fold-title-color: #D4D3D0;
+  --fold-border-color: #3A3A36;
+}
+[data-user-color-scheme="dark"] img {
+  -webkit-filter: brightness(0.92);
+  filter: brightness(0.92);
+}
+
+/* ============================================================
+   4. BODY — warm bone canvas + subtle fixed grain overlay
+   ============================================================ */
+body {
+  background-color: var(--body-bg-color);
+  color: var(--text-color);
+  line-height: 1.65;
+}
+
+/* Ultra-subtle noise texture overlay (CSS-only) */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 180px 180px;
+}
+
+/* ============================================================
+   5. BANNER — editorial, lighter mask, ALWAYS white text
+   ============================================================ */
+.banner .mask {
+  background-color: rgba(0, 0, 0, 0.22) !important;
+}
+
+/* Force white text on banner regardless of color scheme */
+.banner-text,
+.banner-text .h2,
+#subtitle,
+.banner-text .typed-cursor {
+  color: #fff !important;
+}
+[data-user-color-scheme="dark"] .banner-text,
+[data-user-color-scheme="dark"] #subtitle,
+[data-user-color-scheme="dark"] .banner-text .typed-cursor {
+  color: #fff !important;
+}
+
+.banner-text {
+  max-width: 720px;
+  width: 85%;
+}
+
+#subtitle {
+  font-family: 'Noto Serif SC', 'STSong', 'SimSun', 'Georgia', serif;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+}
+
+.banner-text .typed-cursor {
+  font-weight: 300;
+}
+
+/* Banner parallax — smoother transition */
+.banner[parallax="true"] {
+  transition: transform 0.08s ease-out;
+}
+
+/* ============================================================
+   6. NAVBAR — clean, minimal, reduced shadow
+   ============================================================ */
+.navbar {
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08);
+  -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08);
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+}
+
+.navbar .navbar-brand {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  font-size: 1.05rem;
+}
+
+.navbar .nav-item .nav-link {
+  font-weight: 450;
+  opacity: 0.85;
+  transition: opacity 0.2s ease;
+}
+.navbar .nav-item .nav-link:hover {
+  opacity: 1;
+}
+
+.navbar.scrolling-navbar.top-nav-collapse {
+  background: rgba(255, 255, 255, 0.92) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+}
+.navbar.scrolling-navbar.top-nav-collapse .nav-link,
+.navbar.scrolling-navbar.top-nav-collapse .navbar-brand {
+  color: #1A1A1A !important;
+}
+.navbar.scrolling-navbar.top-nav-collapse .animated-icon span {
+  background-color: #1A1A1A;
+}
+
+/* ============================================================
+   7. BOARD — white surface card
+      (wave-particles canvas lives at body-level z-index:0,
+       flows behind board & banner in side margins)
+   ============================================================ */
+#board {
+  position: relative;
+  margin-top: -2rem;
+  padding: 3rem 0;
+  background-color: var(--board-bg-color);
+  border-radius: 12px;
+  border: 1px solid var(--line-color);
+  z-index: 3;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+/* Content wrapper — ensure text sits above any internal layers */
+#board > .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* ============================================================
+   8. INDEX CARDS — flat, bordered, subtle hover
+   ============================================================ */
+.index-card {
+  margin-bottom: 0;
+  padding: 1.8rem 0;
+  border-bottom: 1px solid var(--line-color);
+  transition: background-color 0.25s ease;
+}
+.index-card:last-child {
+  border-bottom: none;
+}
+.index-card:hover {
+  background-color: var(--link-hover-bg-color);
+}
+
+/* Thumbnail images — remove heavy shadow, soft corners */
+.index-img img {
+  border-radius: 6px;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  height: 9rem;
+  object-fit: cover;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.index-card:hover .index-img img {
+  transform: scale(1.03);
+}
+
+/* Post title */
+.index-header {
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 0.35rem;
+}
+.index-header a {
+  color: var(--post-heading-color);
+  transition: color 0.2s ease;
+}
+.index-header a:hover {
+  color: var(--link-hover-color);
+}
+.index-header .index-pin {
+  color: var(--sec-text-color);
+  font-size: 1.1rem;
+}
+
+/* Excerpt */
+.index-excerpt {
+  color: var(--sec-text-color);
+  margin: 0.35rem 0 0.5rem;
+  height: auto;
+  max-height: calc(1.5rem * 3);
+}
+
+/* Post meta row */
+.index-btm {
+  font-size: 0.82rem;
+}
+
+/* Category chain separators — replace > with · */
+.category-chains .category-chain > span {
+  color: var(--sec-text-color);
+  margin: 0 0.25rem;
+}
+
+/* Tag links — pill badges */
+.post-meta a[href*="/tags/"] {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  padding: 2px 10px;
+  border-radius: 9999px;
+  background: rgba(0, 0, 0, 0.04);
+  color: var(--sec-text-color);
+  margin: 0 2px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.post-meta a[href*="/tags/"]:hover {
+  background: rgba(0, 0, 0, 0.08);
+  color: var(--text-color);
+}
+
+/* Category links — clean underline-on-hover */
+.post-meta a[href*="/categories/"] {
+  color: var(--sec-text-color);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.post-meta a[href*="/categories/"]:hover {
+  color: var(--link-hover-color);
+}
+
+/* Post meta icons — smaller, muted */
+.post-meta i.iconfont {
+  font-size: 0.85rem;
+  color: var(--sec-text-color);
+  opacity: 0.65;
+}
+
+/* ============================================================
+   9. ARTICLE CONTENT (markdown-body)
+   ============================================================ */
+.markdown-body {
+  font-size: 0.98rem;
+  line-height: 1.75;
+  color: var(--post-text-color);
+}
+
+.markdown-body > h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  font-family: 'Noto Serif SC', 'STSong', 'SimSun', 'Georgia',
+    'Times New Roman', serif;
+  font-weight: 700;
+  color: var(--post-heading-color);
+  letter-spacing: -0.015em;
+  border-bottom-color: var(--line-color);
+}
+
+.markdown-body > h1 { font-size: 1.8rem; margin-top: 2.5em; }
+.markdown-body h2  { font-size: 1.45rem; margin-top: 2.2em; }
+.markdown-body h3  { font-size: 1.2rem; margin-top: 1.8em; }
+
+.markdown-body a {
+  color: var(--post-link-color);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(31, 108, 159, 0.25);
+  transition: border-color 0.2s ease;
+}
+.markdown-body a:hover {
+  border-bottom-color: var(--post-link-color);
+}
+
+/* Inline code */
+.markdown-body code {
+  font-size: 0.88em;
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  background-color: var(--inlinecode-bg-color);
+  color: var(--text-color);
+}
+
+/* Blockquotes */
+.markdown-body blockquote {
+  border-left: 3px solid var(--line-color);
+  padding: 0.5rem 1.2rem;
+  color: var(--sec-text-color);
+  font-style: italic;
+  background: transparent;
+}
+
+/* Images — softer shadows */
+.markdown-body p > img,
+.markdown-body p > a > img,
+.markdown-body figure > img,
+.markdown-body figure > a > img {
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+/* Tables */
+.markdown-body table {
+  border-radius: 6px;
+  overflow: hidden;
+}
+.markdown-body table th {
+  font-weight: 600;
+  font-size: 0.88rem;
+}
+.markdown-body table th,
+.markdown-body table td {
+  padding: 0.6rem 1rem;
+  border-color: var(--line-color);
+}
+
+/* Horizontal rules */
+.markdown-body hr {
+  border-top: 1px solid var(--line-color);
+  margin: 2.5rem 0;
+}
+
+/* ============================================================
+   10. PAGINATION — clean, understated
+   ============================================================ */
+.pagination {
+  margin-top: 3rem;
+}
+.pagination .page-number,
+.pagination .current,
+.pagination .extend {
+  font-size: 0.85rem;
+  padding: 0.45rem 0.8rem;
+  border-radius: 6px;
+  color: var(--sec-text-color);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.pagination .page-number:hover {
+  background-color: var(--link-hover-bg-color);
+  color: var(--text-color);
+}
+.pagination .current {
+  background-color: var(--text-color);
+  color: #fff;
+  font-weight: 500;
+}
+
+/* ============================================================
+   11. FOOTER — minimal
+   ============================================================ */
+.footer-inner {
+  padding: 3rem 0 2rem;
+  font-size: 0.8rem;
+  color: var(--sec-text-color);
+  border-top: 1px solid var(--line-color);
+  margin-top: 2rem;
+}
+.footer-inner a {
+  color: var(--sec-text-color);
+  transition: color 0.2s ease;
+}
+.footer-inner a:hover {
+  color: var(--text-color);
+}
+
+/* ============================================================
+   12. SCROLL-TO-TOP BUTTON — clean square
+   ============================================================ */
+#scroll-top-button {
+  background: var(--board-bg-color);
+  border: 1px solid var(--line-color);
+  border-radius: 8px;
+  min-width: 38px;
+  min-height: 38px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+#scroll-top-button i {
+  font-size: 28px;
+}
+
+/* ============================================================
+   13. SEARCH MODAL
+   ============================================================ */
+.modal-dialog .modal-content {
+  border-radius: 12px;
+  border: 1px solid var(--line-color);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* ============================================================
+   14. MOBILE GRID MENU
+   ============================================================ */
+#mobile-grid-menu .mobile-grid-item {
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+/* ============================================================
+   15. ARCHIVE / CATEGORY / TAG PAGES
+   ============================================================ */
+.list-group-item {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--line-color);
+  transition: padding-left 0.25s ease;
+}
+.list-group-item time {
+  font-family: 'SF Mono', 'JetBrains Mono', 'Consolas', monospace;
+  font-size: 0.82rem;
+  color: var(--sec-text-color);
+}
+.list-group-item-action:hover {
+  background-color: var(--link-hover-bg-color);
+  border-radius: 6px;
+  padding-left: 0.8rem;
+}
+
+/* Category page */
+.category .category-item {
+  font-size: 1.15rem;
+}
+.category .category-subitem {
+  font-size: 1.05rem;
+}
+
+/* Tag cloud */
+.tagcloud a {
+  padding: 0.35rem 0.7rem;
+  border-radius: 6px;
+  transition: background 0.2s ease, color 0.2s ease;
+  color: var(--sec-text-color);
+}
+.tagcloud a:hover {
+  background-color: var(--link-hover-bg-color);
+  color: var(--text-color) !important;
+}
+
+/* ============================================================
+   16. ABOUT PAGE
+   ============================================================ */
+.about-avatar img {
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+.about-name {
+  font-size: 1.6rem;
+  letter-spacing: -0.02em;
+}
+.about-intro {
+  color: var(--sec-text-color);
+  line-height: 1.7;
+}
+
+/* ============================================================
+   17. LINKS PAGE
+   ============================================================ */
+.links .card-body {
+  border-radius: 8px;
+  border: 1px solid var(--line-color);
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.links .card-body:hover {
+  border-color: transparent;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* ============================================================
+   18. SCROLL REVEAL (CSS-only progressive enhancement)
+   ============================================================ */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.index-card {
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.index-card:nth-child(1) { animation-delay: 0.05s; }
+.index-card:nth-child(2) { animation-delay: 0.12s; }
+.index-card:nth-child(3) { animation-delay: 0.19s; }
+.index-card:nth-child(4) { animation-delay: 0.26s; }
+.index-card:nth-child(5) { animation-delay: 0.33s; }
+.index-card:nth-child(6) { animation-delay: 0.40s; }
+.index-card:nth-child(7) { animation-delay: 0.47s; }
+.index-card:nth-child(8) { animation-delay: 0.54s; }
+.index-card:nth-child(9) { animation-delay: 0.61s; }
+.index-card:nth-child(10) { animation-delay: 0.68s; }
+
+/* ============================================================
+   19. REFINED LINK UNDERLINES (universal)
+   ============================================================ */
+a {
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+/* ============================================================
+   20. MATHJAX — preserve original fixes + enhancements
+   ============================================================ */
+mjx-assistive-mml,
+.MathJax_Assistive_MathML {
+  display: none !important;
+}
+
+.MathJax {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+mjx-mtable {
+  display: inline-table !important;
+}
+mjx-mtr {
+  display: table-row !important;
+}
+mjx-mtd {
+  display: table-cell !important;
+}
+
+@media (max-width: 768px) {
+  mjx-container[display="true"],
+  mjx-container.MathJax[display="true"],
+  .MathJax[display="true"] {
+    display: block !important;
+    max-width: 100% !important;
+    min-width: auto !important;
+    width: 100% !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 8px;
+  }
+  mjx-container[display="true"] > mjx-math,
+  mjx-container.MathJax[display="true"] > mjx-math,
+  .MathJax[display="true"] > mjx-math {
+    display: inline-block !important;
+    white-space: nowrap !important;
+    max-width: none !important;
+  }
+  mjx-container[display="true"] mjx-mtable,
+  mjx-container.MathJax[display="true"] mjx-mtable,
+  .MathJax[display="true"] mjx-mtable {
+    display: inline-table !important;
+  }
+}
+
+/* ============================================================
+   21. HORIZONTAL SCROLL HINT for overflowing content
+   ============================================================ */
+.markdown-body .MathJax[display="true"]::-webkit-scrollbar {
+  height: 4px;
+}
+.markdown-body .MathJax[display="true"]::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-color);
+  border-radius: 4px;
+}
+
+/* ============================================================
+   22. NPROGRESS BAR — match new palette
+   ============================================================ */
+#nprogress .bar {
+  background-color: #6B6762 !important;
+  height: 2px !important;
+}
+#nprogress .peg {
+  box-shadow: 0 0 10px #6B6762, 0 0 5px #6B6762 !important;
+}
+
+/* ============================================================
+   23. SELECTION — warm highlight
+   ============================================================ */
+::selection {
+  background: rgba(180, 170, 155, 0.25);
+  color: var(--text-color);
+}
+::-moz-selection {
+  background: rgba(180, 170, 155, 0.25);
+  color: var(--text-color);
+}
+
+/* ============================================================
+   24. RESPONSIVE FINE-TUNING
+   ============================================================ */
+@media (max-width: 767px) {
+  .index-header {
+    font-size: 1.2rem;
+  }
+  .index-img img {
+    height: 7rem;
+  }
+  #board {
+    border-radius: 8px;
+    padding: 2rem 0;
+  }
+  .banner-text {
+    width: 92%;
+  }
+  #subtitle {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 575px) {
+  .index-card {
+    padding: 1.4rem 0;
+  }
+  .markdown-body {
+    font-size: 0.93rem;
+  }
+}
+
+/* ============================================================
+   25. CUSTOM CURSOR — clean dark dot (all pages)
+   ============================================================ */
+html {
+  cursor: none;
+}
+
+/* Nuke all explicit cursors from theme — our dot replaces them */
+a, a:hover, button, button:hover,
+input, textarea, select,
+.nav-link, .navbar-toggler,
+.pagination a, .pagination .current,
+#scroll-top-button, .search-icon, .modal-close,
+.mjx-container, .MathJax, mjx-container,
+.banner, .banner-text, .banner .mask,
+.index-card, .index-header a,
+img, [role="button"], [tabindex],
+label, .btn, .page-link, .nav-item {
+  cursor: none !important;
+}
+
+#custom-cursor {
+  position: fixed;
+  top: 0; left: 0;
+  z-index: 10000;
+  width: 7px;
+  height: 7px;
+  margin-left: -3.5px;
+  margin-top: -3.5px;
+  border-radius: 50%;
+  background: #2C2C2A;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  will-change: left, top;
+}
+
+/* Dark mode: light dot */
+[data-user-color-scheme="dark"] #custom-cursor {
+  background: #D4D3D0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-user-color-scheme]) #custom-cursor {
+    background: #D4D3D0;
+  }
+}
+
+/* Mobile & touch: restore native cursor, hide dot */
+@media (max-width: 768px), (pointer: coarse) {
+  html, a, button, input, textarea, select,
+  .nav-link, .navbar-toggler, .pagination a,
+  #scroll-top-button, .search-icon, .modal-close,
+  .mjx-container, .MathJax, mjx-container,
+  .banner, .banner-text,
+  .index-card, .index-header a,
+  img, [role="button"], [tabindex],
+  label, .btn, .page-link, .nav-item {
+    cursor: auto !important;
+  }
+  #custom-cursor {
+    display: none;
+  }
+}
