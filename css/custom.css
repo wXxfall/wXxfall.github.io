@@ -370,8 +370,8 @@ body::after {
    9. ARTICLE CONTENT (markdown-body)
    ============================================================ */
 .markdown-body {
-  font-size: 0.98rem;
-  line-height: 1.75;
+  font-size: 1.25rem;
+  line-height: 1.7;
   color: var(--post-text-color);
 }
 
@@ -389,9 +389,9 @@ body::after {
   border-bottom-color: var(--line-color);
 }
 
-.markdown-body > h1 { font-size: 1.8rem; margin-top: 2.5em; }
-.markdown-body h2  { font-size: 1.45rem; margin-top: 2.2em; }
-.markdown-body h3  { font-size: 1.2rem; margin-top: 1.8em; }
+.markdown-body > h1 { font-size: 2.25rem; margin-top: 2.2em; }
+.markdown-body h2  { font-size: 1.8rem; margin-top: 2em; }
+.markdown-body h3  { font-size: 1.5rem; margin-top: 1.6em; }
 
 .markdown-body a {
   color: var(--post-link-color);
@@ -405,11 +405,16 @@ body::after {
 
 /* Inline code */
 .markdown-body code {
-  font-size: 0.88em;
+  font-size: 0.84em;
   padding: 0.15em 0.4em;
   border-radius: 4px;
   background-color: var(--inlinecode-bg-color);
   color: var(--text-color);
+}
+
+/* Code blocks in articles — scale with larger body text */
+.markdown-body pre {
+  font-size: 0.92rem;
 }
 
 /* Blockquotes */
@@ -437,7 +442,7 @@ body::after {
 }
 .markdown-body table th {
   font-weight: 600;
-  font-size: 0.88rem;
+  font-size: 1.05rem;
 }
 .markdown-body table th,
 .markdown-body table td {
@@ -739,7 +744,7 @@ mjx-mtd {
     padding: 1.4rem 0;
   }
   .markdown-body {
-    font-size: 0.93rem;
+    font-size: 1.05rem;
   }
 }
 
